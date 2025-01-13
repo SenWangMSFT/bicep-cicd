@@ -23,7 +23,7 @@ jobs:
       - name: Deploy Bicep to Dev
         run: |
           az deployment group create \
-            --resource-group "<YOUR_DEV_RESOURCE_GROUP>" \
+            --resource-group "bicep-demos" \
             --template-file bicep/main.bicep \
             --parameters @bicep/dev.parameters.json
 
@@ -43,6 +43,6 @@ jobs:
       - name: Deploy Bicep to Prod
         run: |
           az deployment group create \
-            --resource-group "<YOUR_PROD_RESOURCE_GROUP>" \
+            --resource-group "bicep-demos" \
             --template-file bicep/main.bicep \
             --parameters @bicep/prod.parameters.json
