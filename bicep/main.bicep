@@ -30,7 +30,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   kind: 'StorageV2'
 }
 
-module appServiceModule 'br:acrremotemodules.azurecr.io/modules/storage:v1' = {
+module appServiceModule 'br:acrremotemodules.azurecr.io/modules/appservice:v1' = {
   name: 'appServiceModule'
   params: {
     appServicePlanName: appServicePlanName
