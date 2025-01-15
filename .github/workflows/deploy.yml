@@ -39,7 +39,7 @@ jobs:
         run: |
           az bicep publish \
             --file bicep/modules/appService.bicep \
-            --target br:acrremotemodules.azurecr.io/modules/appservice:v1
+            --target br:acrremotemodules.azurecr.io/modules/appservice:v1 --force
 
   deploy-dev:
     if: ${{ github.event_name == 'pull_request' }}
