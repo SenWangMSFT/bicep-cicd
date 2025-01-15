@@ -21,7 +21,7 @@ jobs:
       
       - name: Build the Bicep file
         run: |
-          az bicep build --file bicep/appService.bicep
+          az bicep build --file bicep/modules/appService.bicep
 
       - name: Build Docker image
         run: |
@@ -34,7 +34,7 @@ jobs:
       - name: Publish Bicep module to ACR
         run: |
           az bicep publish \
-            --file bicep/appService.bicep \
+            --file bicep/modules/appService.bicep \
             --target br:acrremotemodules.azurecr.io/modules/appService:v1
 
   deploy-dev:
