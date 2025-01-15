@@ -27,9 +27,9 @@ jobs:
         run: |
           docker build -t acrremotemodules.azurecr.io/modules/appservice:v1 bicep/modules
 
-      - name: Don't let az pick the bicep from the path
+      - name: Bicep upgrade
         run: |
-            az config set bicep.use_binary_from_path=false
+            az bicep upgrade
 
       - name: ACR Login
         run: |
