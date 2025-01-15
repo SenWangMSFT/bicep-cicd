@@ -21,11 +21,11 @@ jobs:
       
       - name: Build the Bicep file
         run: |
-          az bicep build --file bicep/storage.bicep
+          az bicep build --file bicep/appService.bicep
 
       - name: Build Docker image
         run: |
-          docker build -t acrremotemodules.azurecr.io/modules/storage:v1 .
+          docker build -t acrremotemodules.azurecr.io/modules/appService:v1 .
 
       - name: ACR Login
         run: |
@@ -34,8 +34,8 @@ jobs:
       - name: Publish Bicep module to ACR
         run: |
           az bicep publish \
-            --file bicep/storage.bicep \
-            --target br:acrremotemodules.azurecr.io/modules/storage:v1
+            --file bicep/appService.bicep \
+            --target br:acrremotemodules.azurecr.io/modules/appService:v1
 
   deploy-dev:
     if: ${{ github.event_name == 'pull_request' }}
