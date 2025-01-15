@@ -25,7 +25,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t acrremotemodules.azurecr.io/modules/appService:v1 .
+          docker build -t acrremotemodules.azurecr.io/modules/appservice:v1 .
 
       - name: ACR Login
         run: |
@@ -35,7 +35,7 @@ jobs:
         run: |
           az bicep publish \
             --file bicep/modules/appService.bicep \
-            --target br:acrremotemodules.azurecr.io/modules/appService:v1
+            --target br:acrremotemodules.azurecr.io/modules/appservice:v1
 
   deploy-dev:
     if: ${{ github.event_name == 'pull_request' }}
